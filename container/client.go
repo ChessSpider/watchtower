@@ -239,7 +239,7 @@ func (client dockerClient) ExecuteCommand(c Container, command string) error {
                 AttachStderr: true,
                 AttachStdout: true,
                 Detach: false,
-                Cmd: []string{"sh", "-c", command},
+                Cmd: []string{"/bin/sh", "-c", command},
 	}
 	exec, err := client.api.ContainerExecCreate(bg, containerID, execConfig)
 	if err != nil {
