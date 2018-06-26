@@ -53,7 +53,7 @@ func Update(client container.Client, filter container.Filter, cleanup bool, noRe
                         // Execute the pre-update command if it is defined.
                         preUpdateCommand := container.PreUpdateCommand()
                         if len(preUpdateCommand) > 0 {
-                                log.Info("Executing pre-update command.")
+                                log.Infof("Executing pre-update command %s.", preUpdateCommand)
 		                if err := client.ExecuteCommand(container, preUpdateCommand); err != nil {
 				        log.Error(err)
 			        }
